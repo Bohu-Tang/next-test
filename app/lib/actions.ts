@@ -4,6 +4,7 @@ import {sql} from "@vercel/postgres";
 import {revalidatePath} from "next/cache";
 import {redirect} from "next/navigation";
 
+// 发票表单数据格式
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string(),
@@ -31,10 +32,15 @@ export async function createInvoice(formData: FormData) {
     date
   }
   console.log('创建发票的参数：', rawFormData);
-  await sql`
+  try {
+    await sql`
     INSERT INTO invoices (customer_id, amount, status, date)
     VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
   `
+  } catch (e) {
+    return {message: 'Database error: Failed to create invoice.'}
+  }
+
   revalidatePath('/dashboard/invoices'); // 重新刷新invoice页面的数据，但并不是跳转到invoice页面
   redirect('/dashboard/invoices'); // 跳转到invoice页面
 
@@ -50,11 +56,16 @@ export async function updateInvoice(id: string, formData: FormData) {
     status: formData.get('status')
   })
   const amountInCents = amount * 100;
-  await sql`
+
+  try {
+    await sql`
     UPDATE invoices
     SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
     WHERE id = ${id}
   `;
+  } catch (e) {
+    return {message: 'Database error: Failed to update invoice.'}
+  }
 
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
@@ -62,6 +73,11 @@ export async function updateInvoice(id: string, formData: FormData) {
 
 // 删除发票
 export async function deleteInvoice(id: string) {
-  await sql` DELETE FROM invoices WHERE id = ${id} `;
+  try {
+    await sql` DELETE FROM invoices WHERE id = ${id} `;
+  } catch (e) {
+    return {message: 'Database error: Failed to delete invoice items.'}
+  }
+
   revalidatePath('/dashboard/invoices');
 }
