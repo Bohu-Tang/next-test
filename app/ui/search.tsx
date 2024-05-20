@@ -12,7 +12,7 @@ export default function Search({placeholder}: { placeholder: string }) {
   // 搜索方法
   function handleSearch(val: string) {
     const params = new URLSearchParams(searchParams);
-    params.set('page', '1');
+    params.set('page', '1'); // 搜索触发的时候默认回到第一页
     if (val) {
       params.set('query', val);
     } else {
