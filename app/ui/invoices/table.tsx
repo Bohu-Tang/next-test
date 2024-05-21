@@ -60,19 +60,19 @@ export default async function InvoicesTable(
             <thead className="rounded-lg text-left text-sm font-normal">
             <tr>
               <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                Customer
+                客户名称
               </th>
               <th scope="col" className="px-3 py-5 font-medium">
-                Email
+                邮件地址
               </th>
               <th scope="col" className="px-3 py-5 font-medium">
-                Amount
+                金额
               </th>
               <th scope="col" className="px-3 py-5 font-medium">
-                Date
+                日期
               </th>
               <th scope="col" className="px-3 py-5 font-medium">
-                Status
+                发票状态
               </th>
               <th scope="col" className="relative py-3 pl-6 pr-3">
                 <span className="sr-only">Edit</span>

@@ -19,9 +19,9 @@ export default async function Page({params}:{params:{id: string}}) {
     <main>
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Invoices', href: '/dashboard/invoices' },
+          { label: '发票管理', href: '/dashboard/invoices' },
           {
-            label: 'Edit Invoice',
+            label: '修改发票',
             href: `/dashboard/invoices/${id}/edit`,
             active: true,
           },

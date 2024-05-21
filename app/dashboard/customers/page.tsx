@@ -7,6 +7,6 @@ export const metadata: Metadata = {
 
 export default function Page(){
   return (
-    <p>Customer Page</p>
+    <p>客户管理</p>
   )
 }

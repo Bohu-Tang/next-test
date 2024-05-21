@@ -35,7 +35,7 @@ export default function EditInvoiceForm({
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
-            Choose customer
+            客户名称
           </label>
           <div className="relative" aria-describedby={'customer-error'}>
             <select
@@ -45,7 +45,7 @@ export default function EditInvoiceForm({
               defaultValue={invoice.customer_id}
             >
               <option value="" disabled>
-                Select a customer
+                选择客户
               </option>
               {customers.map((customer) => (
                 <option key={customer.id} value={customer.id}>
@@ -68,7 +68,7 @@ export default function EditInvoiceForm({
         {/* Invoice Amount */}
         <div className="mb-4">
           <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-            Choose an amount
+            开票金额
           </label>
           <div className="relative mt-2 rounded-md" aria-describedby={'amount-error'}>
             <div className="relative">
@@ -97,7 +97,7 @@ export default function EditInvoiceForm({
         {/* Invoice Status */}
         <fieldset>
           <legend className="mb-2 block text-sm font-medium">
-            Set the invoice status
+            发票状态
           </legend>
           <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3" aria-describedby={'status-error'}>
             <div className="flex gap-4">
@@ -149,9 +149,9 @@ export default function EditInvoiceForm({
           href="/dashboard/invoices"
           className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
         >
-          Cancel
+          取消
         </Link>
-        <Button type="submit">Edit Invoice</Button>
+        <Button type="submit">保存修改</Button>
       </div>
     </form>
   );
