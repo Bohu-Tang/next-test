@@ -14,8 +14,10 @@ export default function Layout({children}: { children: React.ReactNode }) {
       </div>
       {/*将备案信息放到底部*/}
       <p className={`${lusitana.className} text-center text-xs text-gray-500`}>
-        <a href={"https://beian.miit.gov.cn/"}
-           target={"_blank"}>鲁ICP备19013167号</a>
+        <a
+          href={"https://beian.miit.gov.cn/"}
+          target={"_blank"}
+        >鲁ICP备19013167号</a>
       </p>
     </>
   )
