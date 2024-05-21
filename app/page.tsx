@@ -49,6 +49,7 @@ export default function Page() {
           ></Image>
         </div>
       </div>
+      <p className={`${lusitana.className} text-center text-sm text-gray-500`}><a href={"https://beian.miit.gov.cn/"} target={"_blank"}>鲁ICP备19013167号</a></p>
     </main>
   );
 }
