@@ -5,6 +5,12 @@ import {lusitana} from '@/app/ui/fonts';
 import {Suspense} from "react";
 import {RevenueChartSkeleton, LatestInvoicesSkeleton, CardsSkeleton} from "@/app/ui/skeletons";
 import CardWrapper from "@/app/ui/dashboard/cards";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: '工作台',
+  description: '管理仪表盘'
+}
 
 export default async function Page() {
 
